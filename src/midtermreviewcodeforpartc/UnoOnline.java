@@ -42,8 +42,9 @@ public class UnoOnline
         Scanner sc = new Scanner(System.in);
         System.out.println("please enter your desired user name:");
         String userName = sc.nextLine();
-        boolean validPassword=false;
-        String password="";
+        PasswordValidator PasswordValidator = new PasswordValidator();
+        boolean validPassword = false;
+        String password = "";
         while(!validPassword)
         {
             System.out.println("Passwords must have at least 8 characters");
@@ -52,6 +53,8 @@ public class UnoOnline
             
             password = sc.nextLine();
             int specialCharCount=0;
+            validPassword = PasswordValidator.validatePassword(password);
+
             //iterate over each character to see if it is a special character
             for(int i=0;i<password.length(); i++)
             {
